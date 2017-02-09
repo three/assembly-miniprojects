@@ -51,5 +51,7 @@ int main() {
     }
 
     printf("DONE\n");
+
+    free(it);
     exit(0);
 }
