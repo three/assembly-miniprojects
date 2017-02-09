@@ -167,6 +167,8 @@ _powerset_next:
     sal rcx, 3
     mov rdi, rcx
     call malloc
+    or rax, rax
+    jz .error_libc
     mov [r12], rax ; RAX -> vals
 
     ; Find each element in subset
@@ -211,4 +213,7 @@ _powerset_next:
     mov qword  [r12+8], 0
     mov qword [r12+32], 0
     mov rax, 1
+    jmp .done
+.error_libc:
+    mov rax, -2
     jmp .done
