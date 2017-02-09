@@ -1,5 +1,6 @@
 #include <malloc.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 #include "powerset.h"
 
@@ -15,7 +16,7 @@ void print_it(struct iterator *it) {
 
 int main() {
     int errorcode;
-    int set[10] = { 1,2,3,4,5,6,7,8,0 };
+    uint64_t set[9] = { 1,2,3,4,5,6,7,8,9 };
 
     struct iterator *it = malloc(sizeof (struct iterator));
 
@@ -27,9 +28,9 @@ int main() {
     printf("INIT\n"
             "  set    = %i\n"
             "  length = %i\n"
-            "  buffer = %i\n", set, 10, it);
+            "  buffer = %i\n", set, 9, it);
 
-    errorcode = powerset_init(set, 10, it);
+    errorcode = powerset_init(set, 9, it);
     print_it(it);
     if (errorcode) {
         printf("Recieved error code %i from powerset_init!\n", errorcode);

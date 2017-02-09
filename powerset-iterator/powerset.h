@@ -10,5 +10,5 @@ struct iterator {
     uint64_t *_input;
 } __attribute((__packed__));
 
-int powerset_init(int *input, int length, struct iterator *buffer);
+int powerset_init(uint64_t *input, int length, struct iterator *buffer);
 int powerset_next(struct iterator *buffer);
